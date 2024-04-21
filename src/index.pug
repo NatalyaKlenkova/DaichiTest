@@ -1,0 +1,95 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css")
+        link(rel="stylesheet", href="./css/normalize.css")
+        link(rel="stylesheet", href="./css/main.css")
+        script(src='https://code.jquery.com/jquery-3.6.0.js') 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js") 
+        
+        title Daichi Test
+    body
+
+        //- header.header 
+            
+        main.main   
+            - var productImgs = [{imgTitle: 'product img 1', imgSrc: './img/gallery-1.jpg'}, {imgTitle: 'product img 2', imgSrc: './img/gallery-2.jpg'}, {imgTitle: 'product img 3', imgSrc: './img/gallery-3.jpg'}, {imgTitle: 'product img 4', imgSrc: './img/gallery-4.jpg'}, {imgTitle: 'product img 5', imgSrc: './img/gallery-5.jpg'}, {imgTitle: 'product img 6', imgSrc: './img/gallery-5.jpg'}, {imgTitle: 'product img 7', imgSrc: './img/gallery-5.jpg'}]
+            - var productChars = [{title: 'Бренд', val: 'DAIKIN'}, {title: 'Серия', val: 'Sensira'}, {title: 'Инверторные', val: 'Да'}, {title: 'Потребляемая мощность, охлаждение, кВт', val: '1,5~1,27~0,31'}, {title: 'Класс энергоэффективности, охлаждение', val: 'A'}, {title: 'Холодопроизводительность, кВт, макс.', val: '4,3'}, {title: 'Теплопроизводительность, кВт, макс.', val: '5'}, {title: 'Гарантия', val: '3 года'}]
+            section.product 
+                .container.product__container
+                    .product__gallery.fotorama(data-nav="thumbs", data-arrows="false", data-thumbwidth="50px", data-thumbheight="50px", data-thumbmargin="13", data-thumbborderwidth="1.5", data-allowfullscreen="true")
+                        for productImg of productImgs 
+                                img.product__img(src=productImg.imgSrc, alt=productImg.imgTitle)
+                    .product__content
+                        h3.product__title.h3-header Облачный кондиционер Daichi Alpha A20AVQR3_1Y/A20FVR3_1Y + 1&nbsp;год подписки
+                        button.product__fav.btn-reset
+                            p.text-12 В&nbsp;избранное
+                        .product__info 
+                            .product__char.product-char
+                                h5.product-char__title.h5-header Характеристики
+                                ul.product-char__list.list-reset
+                                    for productChar of productChars
+                                        li.product-char__item
+                                            p.product-char__name.text-12= productChar.title
+                                            .product-char__dots
+                                            p.product-char__val.text-12= productChar.val
+                            .product__price.product-price
+                                p.product-price__val.h2-header 13&nbsp;572&nbsp;₽
+                                .product-price__feedback.product-feedback
+                                    .product-feedback__wrapper
+                                        h5.product-feedback__title.h5-header Нашли дешевле?
+                                        p.product-feedback__descr.text-12 Сообщите нам и&nbsp;мы&nbsp;снизим цену!
+
+                        ul.accordion.list-reset#accordion
+                            li.accordion__item
+                                .accordion__top
+                                    h5.accordion__title.h5-header Можно&nbsp;ли простудиться от&nbsp;кондиционера? И&nbsp;как этого избежать?
+                                .accordion__content
+                                    p.accordion__descr.text-12 Простудиться при пользовании кондиционером действительно можно, но&nbsp;этого легко избежать, если следовать простым правилам эксплуатации кондиционера.
+                                    p.accordion__descr.text-12 Во-первых, не&nbsp;нужно направлять воздушный поток на&nbsp;человека&nbsp;&mdash; с&nbsp;помощью управления горизонтальными и&nbsp;вертикальными жалюзи, а&nbsp;также правильного выбора первоначальной установки кондиционера. 
+                                    p.accordion__descr.text-12 Во-вторых, разница температур внутри охлаждаемого помещения и&nbsp;снаружи не&nbsp;должна превышать 10&nbsp;градусов, в&nbsp;идеале 5-7&nbsp;градусов. 
+                                    p.accordion__descr.text-12 В-третьих, надо понимать, что любой кондиционер осушает воздух, а&nbsp;низкая влажность воздуха в&nbsp;помещении&nbsp;&mdash; это потенциальная опасность заболевания для человеческого организма. Здесь на&nbsp;помощь приходят увлажнители воздуха. 
+                                    p.accordion__descr.text-12 И&nbsp;последнее, что хотелось&nbsp;бы отметить, нерегулярное техобслуживание кондиционера приводит к&nbsp;распространению вредоносных бактерий, появлению плесени, загрязнению фильтров&nbsp;&mdash; осуществляйте чистку как внутреннего, так и&nbsp;наружного блоков сплит-системы хотя&nbsp;бы раз в&nbsp;год.
+
+                    .product__overlay 
+                        .product__popup.popup.popup--form.active
+                            .popup__head 
+                                button.popup__close-btn.btn-reset
+                                .popup__logo 
+                                h2.popup__title.desktop.h2-header 
+                                    p Нашли дешевле?
+                                    p.colored Снизим цену!
+                            .popup__bottom 
+                                h2.popup__title.mobile.h2-header 
+                                    p Нашли дешевле?
+                                    p.colored Снизим цену!
+                                p.popup__descr.text-14 Если у&nbsp;конкурента цена ниже&nbsp;&mdash; вернём разницу! Отправьте ссылку на&nbsp;альтернативное предложение и&nbsp;получите товар по&nbsp;привлекательной цене.
+                                form#form.popup__form.form(action="") 
+                                    span.form__input-wrapper
+                                        label.form__label.text-12 Ваше имя 
+                                            span.form__reqiured-sign *
+                                        input#name.form__input.form-control.text-14(type="text", name="Ваше имя", autocomplete="off")
+                                    span.form__input-wrapper
+                                        label.form__label.text-12 Телефон 
+                                            span.form__reqiured-sign *
+                                        input#phone.form__input.form-control.text-14(type="tel", name="Телефон", placeholder="+7 (000) 000-00-00", autocomplete="off")
+                                    button#submit-btn.form__btn.main-btn.btn-reset Отправить
+                                p.popup__privacy.text-12 Нажимая на кнопку, вы соглашаетесь с нашей 
+                                    a(href="#", target="_blank") политикой конфиденциальности
+                        .product__popup.popup.popup--thanks 
+                            button.popup__close-btn.btn-reset
+                            h2.h2-header Спасибо!
+                            p.text-14 В&nbsp;скором времени наш менеджер обязательно с&nbsp;вами свяжется.
+                            button.popup__confirm-btn.main-btn.btn-reset Ок
+
+        //- footer.footer
+
+        
+        script(src='https://code.jquery.com/ui/1.13.2/jquery-ui.js')  
+        script(src='https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js')  
+        script(src='js/inputmask.min.js')  
+        script(src='./js/app.js')   
+                                                    

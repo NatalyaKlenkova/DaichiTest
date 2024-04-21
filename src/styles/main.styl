@@ -1,0 +1,460 @@
+
+@import './vars.styl'
+
+@font-face 
+    font-family: 'GothamPro';
+    src: local('GothamPro Light'), local('GothamPro-Light'),
+        url('../fonts/GothamPro-Light.woff2') format('woff2'),
+        url('../fonts/GothamPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+
+@font-face
+    font-family: 'GothamPro';
+    src: local('GothamPro Regular'), local('GothamPro'),
+        url('../fonts/GothamPro.woff2') format('woff2'),
+        url('../fonts/GothamPro.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+
+@font-face
+    font-family: 'GothamPro';
+    src: local('GothamPro Medium'), local('GothamPro-Medium'),
+        url('../fonts/GothamPro-Medium.woff2') format('woff2'),
+        url('../fonts/GothamPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+    
+@font-face
+    font-family: 'SuisseIntl';
+    src: local('SuisseIntl Regular'), local('SuisseIntl-Regular'),
+        url('../fonts/SuisseIntl-Regular.woff2') format('woff2'),
+        url('../fonts/SuisseIntl-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+
+
+@font-face
+    font-family: 'SuisseIntl';
+    src: local('SuisseIntl Medium'), local('SuisseIntl-Medium'),
+        url('../fonts/SuisseIntl-Medium.woff2') format('woff2'),
+        url('../fonts/SuisseIntl-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+
+
+
+
+tr(){
+	transition all 0.2s ease-in-out
+}
+
+html
+	box-sizing border-box
+	overflow-x hidden
+
+*,
+*::after,
+*::before
+	box-sizing inherit
+
+body
+    min-width 320px
+    background-color $white
+    font-family 'SuisseIntl', sans-serif
+    font-weight 400
+    color $text-color
+    overflow-x hidden
+
+// Global
+
+.container
+    width 100%
+    max-width 1440px
+    padding 0 40px
+    margin 0 auto
+
+.list-reset 
+    list-style none
+    padding 0
+    margin 0
+
+.btn-reset
+    background-color transparent
+    padding 0
+    border none
+        
+a
+    text-decoration none
+    color $dark-blue
+    tr()
+    &:hover
+        color $blue
+
+img
+    max-width 100%
+
+.visually-hidden 
+    position absolute
+    width 1px
+    height 1px
+    margin -1px
+    border 0
+    padding 0
+    clip rect(0 0 0 0)
+    overflow hidden
+
+.stop-scroll 
+    overflow-y hidden
+    overscroll-behavior contain
+
+.h2-header,
+.h2-header p
+    font-size: var(--h2);
+    font-weight: 500;
+    line-height: 120%;
+    margin 0
+.h3-header
+    font-size: var(--h3);
+    font-weight: 500;
+    line-height: 120%;
+    margin 0
+.h5-header
+    font-size: var(--h5);
+    font-weight: 500;
+    line-height: 120%;
+    margin 0
+.text-14
+    font-size: var(--text-14);
+    font-weight: 400;
+    line-height: 160%;
+    margin 0
+.text-12
+    font-size: var(--text-12);
+    font-weight: 400;
+    line-height: 160%;
+    margin 0
+.colored
+    color $dark-blue
+// Btns
+.main-btn
+    color $white
+    font-size: var(--h5);
+    font-weight: 500;
+    line-height: 120%;
+    background-color $dark-blue
+    padding var(--gap-xs) var(--gap-sm)
+    border-radius: var(--br-xs)
+    cursor pointer
+    tr()
+    &:hover
+        background-color $blue
+    &.disabled,
+    &[disabled],
+    &:disabled
+        background-color $dark-gray
+        pointer-events none
+
+// Gallery
+.fotorama
+    &__nav
+        text-align: unset
+    &__stage
+        & .fotorama__img
+            border-radius var(--br) !important
+    &__nav
+        & .fotorama__thumb,
+        & .fotorama__img
+            border-radius var(--br-sm) !important
+    &__thumb-border
+        background-image none
+        border-color $text-color
+        border-radius var(--br-sm) !important
+
+.fotorama:not(.fotorama--fullscreen) .fotorama__stage
+    margin-bottom 24px
+
+
+// Product
+.product
+    padding 64px 0
+    &__container
+        display: flex
+        gap var(--gap)
+    &__gallery
+        width 34%
+        min-width 34%
+        overflow: hidden
+    &__img
+        border-radius var(--br)
+    &__title
+        margin-bottom var(--gap-xs)
+    &__fav
+        position relative
+        color $darkest-gray
+        padding-left 34px
+        margin-bottom var(--gap-m)
+        cursor pointer
+        tr()
+        &::before
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z' stroke='%236C7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        &::after
+            opacity 0
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z' stroke='%231a1a1a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        &::before,
+        &::after
+            position: absolute
+            top 0
+            left 0
+            content: ''
+            width var(--w)
+            height var(--w)
+            background-repeat no-repeat
+            background-size contain
+            tr()
+        & p
+            margin-top 5px
+        &:hover
+            color $text-color
+            &::before
+                opacity 0
+            &::after
+                opacity 1
+    &__fav.active,
+    &__fav.active:hover
+        color $dark-blue
+        &::before
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z' fill='%235EA9FF'/%3E%3C/svg%3E%0A");
+            opacity 1
+        &::after
+            opacity 0
+    &__info
+        display: flex
+        justify-content: space-between
+        gap var(--gap)
+        margin-bottom var(--gap-m)
+
+.product-char
+    width 47%
+    &__title
+        margin-bottom 10px
+    &__item
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        &:not(:last-child)
+            margin-bottom 5px
+    &__dots
+        flex-grow 1
+        height: 13px;
+        margin: 0 10px;
+        margin-bottom 5px
+        background-image: linear-gradient(to right, #6c7684 10%, rgba(255, 255, 255, 0) 0%);
+        background-position: bottom;
+        background-size: 5px 1px;
+        background-repeat: repeat-x;
+    &__name
+        max-width: 65%
+        color $darkest-gray
+
+.product-price
+    width 46%
+    &__val
+        background-color $white
+        box-shadow: $box-shadow
+        padding 30px
+        border-radius var(--br)
+        margin-bottom var(--gap-sm)
+
+.product-feedback
+    position relative
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color $light-blue
+    padding var(--gap-sm) var(--gap-xs) var(--gap-sm) 106px
+    border-radius var(--br)
+    cursor pointer
+    tr()
+    &:hover
+        background-color $blue
+    &::before
+        position: absolute
+        width: 98px
+        height auto
+        top -22px
+        left 0
+        bottom 0
+        content ''
+        background-image: url('../img/feedback-bg.png')
+        background-repeat no-repeat
+        background-size contain
+        background-position bottom 
+    &::after
+        content ''
+        min-width var(--w)
+        min-height var(--w)
+        background-image url("data:image/svg+xml,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 16.5L14 12.5L10 8.5' stroke='%236C7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+        background-repeat no-repeat
+        background-size contain
+    &__title
+        margin-bottom 4px
+
+// Accordion
+.accordion
+    &__item
+        border 1px solid $light-gray
+    &__top
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding 20px
+        cursor pointer
+        tr()
+        &::after
+            content ''
+            width var(--w)
+            height var(--w)
+            background-image url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%236C7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+            background-repeat no-repeat
+            background-size contain
+            tr()
+        &:hover
+            opacity .8
+    &__top.ui-state-active
+        &::after
+            transform: rotate(180deg)
+    &__title
+        max-width 80%
+    &__content
+        padding 20px
+        padding-top 5px
+    &__descr
+        &:not(:last-child)
+            margin-bottom 28px
+
+.ui-accordion-header-icon
+    display: none
+
+// Popup
+.product__overlay
+    position: fixed
+    top 0
+    left 0
+    width: 100vw
+    height 100vh
+    display: none
+    justify-content: center
+    align-items: center
+    background: rgba(0,0,0,.25);
+   &.active 
+    display: flex
+.popup
+    display none
+    width: 690px
+    box-shadow: $box-shadow
+    tr()
+    &.active 
+        display: block
+    &__head
+        position relative
+        background-color $light-blue
+        background url('../img/feedback-bg.png'), $light-blue
+        background-repeat no-repeat
+        background-size contain
+        background-position bottom right 108px
+        padding 30px
+        border-radius: var(--br) var(--br) 0 0
+    &__close-btn
+        position: absolute
+        top 30px
+        right 30px
+        width var(--w)
+        height var(--w)
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L19 19' stroke='%236C7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19 5L5 19' stroke='%236C7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        background-repeat no-repeat
+        cursor: pointer
+        tr()
+        &:hover
+            opacity .8
+    &__logo
+        width 218px
+        height 26px
+        background-image: url("data:image/svg+xml,%3Csvg width='219' height='27' viewBox='0 0 219 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.6397 3.51429C25.0633 3.51429 26.3867 3.77518 27.65 4.27689C28.9133 4.81873 29.976 5.52111 30.8984 6.4041C31.8207 7.30717 32.5626 8.37078 33.084 9.57487C33.6254 10.779 33.866 12.1035 33.866 13.4882C33.866 14.8728 33.6053 16.1773 33.084 17.4014C32.5426 18.6055 31.8207 19.6691 30.8984 20.5722C29.976 21.4752 28.9133 22.1776 27.65 22.6793C26.3867 23.2211 25.0633 23.462 23.6397 23.462H16V3.51428L23.6397 3.51429ZM26.1661 19.207C26.9281 18.906 27.5698 18.4444 28.1111 17.8825C28.6525 17.3206 29.0335 16.6383 29.3544 15.8958C29.6551 15.1332 29.7955 14.3505 29.7955 13.4876C29.7955 12.6247 29.6551 11.8019 29.3544 11.0393C29.0536 10.2767 28.6525 9.63455 28.1111 9.07264C27.5698 8.51073 26.9281 8.06923 26.1661 7.72805C25.4042 7.42704 24.562 7.24642 23.6396 7.24642H20.0704V19.7087H23.6396C24.562 19.7087 25.4042 19.5482 26.1661 19.207V19.207Z' fill='%231A1A1A'/%3E%3Cpath d='M61.8196 3.51501V23.4427H57.749V3.51501H61.8196Z' fill='%231A1A1A'/%3E%3Cpath d='M80.7876 15.6382C80.1864 17.9259 78.5418 19.8726 75.2936 19.8726C71.0429 19.8726 69.6992 16.5814 69.6992 13.4909C69.6992 10.4004 71.0629 7.10925 75.2936 7.10925C78.5418 7.10925 80.1864 9.03576 80.7876 11.3436H84.9584C84.1361 6.447 80.5272 3.1759 75.4542 3.1759C69.6792 3.1759 65.4685 7.41028 65.4685 13.4909C65.4685 19.5515 69.6593 23.8059 75.4542 23.8059C80.5272 23.8059 84.1361 20.5549 84.9584 15.6583H80.7876V15.6382Z' fill='%231A1A1A'/%3E%3Cpath d='M114.073 3.51501V23.4427H110.002V3.51501H114.073Z' fill='%231A1A1A'/%3E%3Cpath d='M92.4379 3.51501V11.6025H101.381V3.51501H105.471V23.4427H101.401V15.1746H92.4379V23.4427H88.3674V3.51501H92.4379Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.09571 3.1759C2.72701 3.1759 0 5.90517 0 9.2766C0 12.648 2.72702 15.3773 6.09571 15.3773C9.46434 15.3773 12.1914 12.648 12.1914 9.2766C12.1713 5.90517 9.44428 3.1759 6.09571 3.1759ZM6.0959 11.7639C4.71233 11.7639 3.58943 10.6401 3.58943 9.25538C3.58943 7.87067 4.71233 6.74687 6.0959 6.74687C7.47943 6.74687 8.60234 7.87068 8.60234 9.25538C8.58228 10.6401 7.45941 11.7639 6.0959 11.7639Z' fill='%231A1A1A'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M50.2891 23.4419H54.6001L47.8227 3.51428H45.617H43.7723H41.5666L34.709 23.4419H39.0201L40.3635 19.348H48.9458L50.2891 23.4419ZM41.5269 15.8554L44.675 6.32304L47.8031 15.8554H41.5269Z' fill='%231A1A1A'/%3E%3Cpath d='M213.654 0.5H134.876C132.224 0.5 130.073 2.59775 130.073 5.18545V21.7963C130.073 24.384 132.224 26.4818 134.876 26.4818H213.654C216.307 26.4818 218.457 24.384 218.457 21.7963V5.18545C218.457 2.59775 216.307 0.5 213.654 0.5Z' fill='url(%23paint0_linear_62_1851)'/%3E%3Cpath d='M142.194 18.8702V7.05957H144.465L148.147 12.6437L151.829 7.05957H154.092V18.8702H151.964V10.4035L148.147 15.9711H148.079L144.289 10.4364V18.8702H142.194Z' fill='white'/%3E%3Cpath d='M156.346 16.2761C156.346 15.3206 156.683 14.5959 157.359 14.1017C158.04 13.602 158.935 13.3522 160.044 13.3522C160.939 13.3522 161.781 13.4758 162.569 13.7229V13.5582C162.569 12.9377 162.375 12.4655 161.986 12.1416C161.603 11.8121 161.049 11.6473 160.323 11.6473C159.501 11.6473 158.632 11.834 157.714 12.2074L157.14 10.5684C157.703 10.3214 158.248 10.1374 158.778 10.0166C159.313 9.89029 159.926 9.82715 160.618 9.82715C161.947 9.82715 162.946 10.1539 163.616 10.8072C164.291 11.4551 164.629 12.3831 164.629 13.591V18.8704H162.552V17.7751C161.814 18.6316 160.83 19.0599 159.596 19.0599C159.005 19.0599 158.468 18.9583 157.984 18.7552C157.5 18.5465 157.106 18.2281 156.802 17.7997C156.498 17.3715 156.346 16.8636 156.346 16.2761ZM158.423 16.202C158.423 16.6083 158.589 16.9294 158.921 17.1656C159.253 17.4016 159.675 17.5197 160.188 17.5197C160.885 17.5197 161.463 17.3467 161.918 17.0008C162.375 16.6494 162.602 16.1992 162.602 15.6501V15.1395C161.995 14.9033 161.297 14.7853 160.509 14.7853C159.85 14.7853 159.338 14.9089 158.972 15.1559C158.606 15.403 158.423 15.7517 158.423 16.202Z' fill='white'/%3E%3Cpath d='M167.12 21.5717V9.96698H169.205V11.4496C170.016 10.3349 171.049 9.77759 172.304 9.77759C172.85 9.77759 173.376 9.8819 173.884 10.0906C174.39 10.2992 174.843 10.5957 175.243 10.9801C175.643 11.3645 175.961 11.8559 176.197 12.4543C176.439 13.0528 176.56 13.7117 176.56 14.431C176.56 15.1448 176.439 15.7982 176.197 16.3912C175.961 16.9842 175.643 17.4729 175.243 17.8573C174.848 18.2416 174.399 18.5381 173.891 18.7468C173.385 18.9554 172.856 19.0598 172.304 19.0598C171.054 19.0598 170.022 18.5354 169.205 17.4867V21.5717H167.12ZM169.155 14.431C169.155 15.2656 169.416 15.9492 169.94 16.4818C170.463 17.0144 171.091 17.2807 171.823 17.2807C172.561 17.2807 173.179 17.0199 173.681 16.4983C174.181 15.9712 174.432 15.2711 174.432 14.3981C174.432 13.558 174.179 12.8744 173.672 12.3473C173.165 11.8146 172.549 11.5483 171.823 11.5483C171.091 11.5483 170.463 11.8174 169.94 12.3555C169.416 12.8936 169.155 13.5855 169.155 14.431Z' fill='white'/%3E%3Cpath d='M178.704 18.8702V9.96692H180.773V14.2333L184.75 9.96692H187.207L183.661 13.7062L187.502 18.8702H185.029L182.268 15.1969L180.773 16.7289V18.8702H178.704Z' fill='white'/%3E%3Cpath d='M188.449 14.4145C188.449 13.569 188.637 12.7947 189.015 12.0919C189.391 11.3837 189.923 10.8209 190.61 10.4036C191.297 9.98619 192.065 9.77759 192.915 9.77759C193.484 9.77759 194.007 9.86269 194.486 10.033C194.964 10.1976 195.372 10.4282 195.71 10.7247C196.054 11.0212 196.343 11.3726 196.58 11.7789C196.822 12.1798 196.999 12.6163 197.111 13.0885C197.23 13.5607 197.289 14.0549 197.289 14.571C197.289 14.8181 197.278 15.0075 197.255 15.1393H190.542C190.655 15.8531 190.948 16.4104 191.42 16.8112C191.899 17.2066 192.482 17.4043 193.169 17.4043C193.663 17.4043 194.105 17.3191 194.494 17.1489C194.883 16.9732 195.265 16.7042 195.642 16.3418L196.875 17.4043C195.93 18.5189 194.683 19.0762 193.135 19.0762C192.257 19.0762 191.462 18.8841 190.753 18.4997C190.044 18.1154 189.481 17.5662 189.065 16.8524C188.654 16.1387 188.449 15.326 188.449 14.4145ZM190.526 13.7969H195.212C195.139 13.105 194.9 12.5422 194.494 12.1084C194.095 11.6691 193.563 11.4496 192.899 11.4496C192.268 11.4496 191.738 11.6664 191.311 12.1002C190.889 12.5284 190.627 13.0941 190.526 13.7969Z' fill='white'/%3E%3Cpath d='M198.404 11.7212V9.96692H206.391V11.7212H203.453V18.8702H201.342V11.7212H198.404Z' fill='white'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_62_1851' x1='134.876' y1='5.654' x2='217.26' y2='26.2777' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%237BBAFF'/%3E%3Cstop offset='1' stop-color='%23FAA676' stop-opacity='0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+        background-repeat no-repeat
+        margin-bottom 93px
+    &__bottom
+        color $darkest-gray
+        background-color $white
+        padding 30px
+        border-radius: 0 0 var(--br) var(--br)
+    &__title.mobile
+        display: none
+    &__descr
+        margin-bottom 25px
+    &__privacy
+        text-align: center
+    &--thanks 
+        position relative
+        background-color $white
+        background-image url('../img/Wait for the call.png');
+        background-repeat no-repeat
+        background-position top 30px center
+        background-size 253px 253px
+        padding 30px
+        padding-top 313px
+        border-radius var(--br)
+        text-align: center
+        & .h2-header
+            margin-bottom var(--gap-xs)
+        & .text-14 
+            color $darkest-gray
+            margin-bottom var(--gap-m)
+        & .popup__confirm-btn
+            width 250px
+
+.form
+    &__input-wrapper
+        width 100%
+        display inline-block
+        margin-bottom var(--gap-xs)
+        &:nth-child(2)
+            margin-bottom var(--gap-m)
+        & .is-label-invalid
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 160%;
+            margin-top 5px
+    &__label
+        color $darkest-gray
+        margin-bottom 5px
+    &__reqiured-sign
+        color $error-color
+    &__input
+        width 100%
+        color $text-color
+        caret-color $dark-blue
+        background-color $gray
+        padding var(--gap-xs) var(--gap-xs) 12px
+        border: none
+        border-radius: var(--br-xs)
+        outline: 1.5px solid transparent
+        tr()
+        &:hover
+            background-color $dark-gray
+        &:focus
+            background-color transparent
+            outline: 1.5px solid $text-color
+        &.is-invalid
+            outline-color: $error-color
+    &__btn
+        width 100%
+        margin-bottom var(--gap-xs)
+
+
+@import './media.styl'

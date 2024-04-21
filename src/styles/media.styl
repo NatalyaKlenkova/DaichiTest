@@ -1,0 +1,159 @@
+@media (max-width 1280px)
+    .product
+        &__gallery
+            width 32%
+            min-width 32%
+    .product-feedback
+        padding 14px var(--gap-xs) 14px 106px
+        &__descr
+            max-width: 90%
+        &::before
+            width 96px
+
+@media (max-width 1100px)
+    .product
+        &__info
+            flex-direction: column
+        &__char,
+        &__price
+            width 100%
+
+    .product-price
+        display: flex
+        justify-content: space-between
+        &__val
+            width 38%
+        &__feedback
+            width 60%
+        &__val
+            margin-bottom 0
+    .product-feedback
+        &__descr
+            max-width: 100%
+        &::before
+            width 111px
+
+@media (max-width 991px)
+    .product-price
+        flex-direction: column
+        &__val,
+        &__feedback
+            width 100%
+        &__val
+            padding var(--gap-sm)
+            margin-bottom var(--gap-sm)
+
+@media (max-width 768px)
+    .container
+        padding 0 4vw
+
+    .fotorama
+        &__nav
+            & .fotorama__thumb,
+            & .fotorama__img
+                border-radius var(--br-xs) !important
+        &__thumb-border
+            border-radius var(--br-xs) !important
+    .fotorama:not(.fotorama--fullscreen) .fotorama__stage
+        margin-bottom 2.1333vw
+
+    // Product
+    .product
+        &__container
+            flex-direction: column
+            gap var(--gap-sm)
+        &__gallery
+            width 100%
+        &__title,
+        &__fav
+            margin-bottom var(--gap-sm)
+        &__fav
+            padding-left: 9.0667vw
+            & p
+                margin-top 1.3333vw
+        &__info
+            margin-bottom var(--gap-sm)
+        &__char
+            display: none
+
+    .product-price
+        width 100%
+        &__val
+            padding 6.4vw
+            margin-bottom var(--gap-sm)
+
+    .product-feedback
+        padding var(--gap-xs) var(--gap-xs) var(--gap-xs) 28.2667vw
+        &__title
+            margin-bottom 1.0667vw
+        &__descr
+            max-width: 90%
+        &::before
+            width 26.5333vw
+            top -5.0667vw
+
+    // Accordion
+    .accordion
+        &__top
+            padding 5.3333vw
+        &__content
+            padding 5.3333vw
+            padding-top 1.3333vw
+        &__descr
+            &:not(:last-child)
+                margin-bottom 5.3333vw
+
+    // Popup
+    .product__overlay
+        top 50%
+        transform: translateY(-50%)
+    .popup
+        width 100%
+        &__head
+            height 45.6vw
+            background-position bottom center
+            padding 4.2667vw
+            border-radius: 0
+        &__close-btn
+            top 4.2667vw
+            right 4.2667vw
+        &__logo,
+        &__title.desktop
+            display none
+        &__title.mobile
+            display block
+            color $text-color
+            margin-bottom 4vw
+            & p
+                font-size 6.4vw
+        &__bottom
+            padding 8vw 4.2667vw 34.6667vw
+            border-radius: 0
+        &__descr
+            margin-bottom 6.6667vw
+        &--thanks 
+            background-position top 21.3333vw center
+            background-size 67.4667vw 67.4667vw
+            padding 96.8vw 9.0667vw 30.1333vw
+            border-radius 0
+            & .h2-header
+                font-size 6.4vw
+                margin-bottom 4vw
+            & .text-14 
+                margin-bottom 8vw
+            & .popup__confirm-btn
+                width 66.6667vw
+
+    .form
+        &__input-wrapper
+            &:nth-child(2)
+                margin-bottom 6.6667vw
+            & .is-label-invalid
+                font-size: 2.6667vw
+                margin-top 1.3333vw
+        &__label
+            margin-bottom 1.3333vw
+        &__input
+            padding 3.7333vw 4vw 3.2vw
+        &__btn  
+            margin-bottom 2.1333vw
