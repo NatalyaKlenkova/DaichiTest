@@ -1,33 +1,6 @@
 
 @import './vars.styl'
 
-@font-face 
-    font-family: 'GothamPro';
-    src: local('GothamPro Light'), local('GothamPro-Light'),
-        url('../fonts/GothamPro-Light.woff2') format('woff2'),
-        url('../fonts/GothamPro-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap
-
-@font-face
-    font-family: 'GothamPro';
-    src: local('GothamPro Regular'), local('GothamPro'),
-        url('../fonts/GothamPro.woff2') format('woff2'),
-        url('../fonts/GothamPro.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap
-
-@font-face
-    font-family: 'GothamPro';
-    src: local('GothamPro Medium'), local('GothamPro-Medium'),
-        url('../fonts/GothamPro-Medium.woff2') format('woff2'),
-        url('../fonts/GothamPro-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap
-    
 @font-face
     font-family: 'SuisseIntl';
     src: local('SuisseIntl Regular'), local('SuisseIntl-Regular'),
@@ -161,25 +134,39 @@ img
         pointer-events none
 
 // Gallery
-.fotorama
-    &__nav
-        text-align: unset
-    &__stage
-        & .fotorama__img
-            border-radius var(--br) !important
-    &__nav
-        & .fotorama__thumb,
-        & .fotorama__img
-            border-radius var(--br-sm) !important
-    &__thumb-border
-        background-image none
+// .fotorama
+//     &__nav
+//         text-align: unset
+//     &__stage
+//         & .fotorama__img
+//             border-radius var(--br) !important
+//     &__nav
+//         & .fotorama__thumb,
+//         & .fotorama__img
+//             border-radius var(--br-sm) !important
+//     &__thumb-border
+//         background-image none
+//         border-color $text-color
+//         border-radius var(--br-sm) !important
+
+// .fotorama:not(.fotorama--fullscreen) .fotorama__stage
+//     margin-bottom 11px
+
+// Swipers
+.product-swiper
+    margin-bottom var(--gap-sm)
+    & img
+        width 100%
+        border-radius var(--br)
+.thumbs-swiper
+    & .swiper-slide
+        box-sizing: border-box
+    & img
+        border 1.5px solid transparent
+        border-radius var(--br-sm)
+    & .swiper-slide-thumb-active img
         border-color $text-color
-        border-radius var(--br-sm) !important
-
-.fotorama:not(.fotorama--fullscreen) .fotorama__stage
-    margin-bottom 11px
-
-
+    
 // Product
 .product
     padding 64px 0
@@ -343,6 +330,7 @@ img
 
 // Popup
 .product__overlay
+    z-index 10
     position: fixed
     top 0
     left 0

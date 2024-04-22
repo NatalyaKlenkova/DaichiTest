@@ -17,6 +17,35 @@ $(document).ready(function () {
         }
     }
 
+    // Product Swiper
+    const thumbsSwiper = new Swiper('.thumbs-swiper', {
+        spaceBetween: 13,
+        slidesPerView: 7,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            991: {
+              slidesPerView: 7,
+              spaceBetween: 5
+            },
+        
+            320: {
+              slidesPerView: 5.8,
+              spaceBetween: 14
+            },
+          },
+    });
+    var productSwiper = new Swiper(".product-swiper", {
+        loop: true,
+        // spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: thumbsSwiper,
+        },
+      });
 
     // Add to fav
     $('.product__fav').click(function () {
@@ -51,7 +80,7 @@ $(document).ready(function () {
         $('.popup__close-btn, .popup__confirm-btn').click(function () {
             disablePopup()
         })
-        $('.popup__confirm-btn').click(function() {
+        $('.popup__confirm-btn').click(function () {
             $('.popup--thanks').removeClass('active');
 
             $('.popup--form .form__input').val('');
@@ -59,7 +88,7 @@ $(document).ready(function () {
             $('.popup--form').addClass('active');
         })
         // После успешной отправки формы показываем второй попап
-        $('#form').submit(function() {
+        $('#form').submit(function () {
             $('.popup--form').removeClass('active');
             $('.popup--thanks').addClass('active');
         })

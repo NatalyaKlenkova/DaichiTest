@@ -4,12 +4,16 @@ html(lang="ru")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css")
+        
+        //- link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css")
         link(rel="stylesheet", href="./css/normalize.css")
         link(rel="stylesheet", href="./css/main.css")
-        script(src='https://code.jquery.com/jquery-3.6.0.js') 
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js") 
-        
+        //- script(src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js") 
+        script(src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js')
+        script(src='https://code.jquery.com/jquery-3.7.1.js') 
+        script(src='https://code.jquery.com/ui/1.13.2/jquery-ui.js') 
+
         title Daichi Test
     body
 
@@ -20,9 +24,22 @@ html(lang="ru")
             - var productChars = [{title: 'Бренд', val: 'DAIKIN'}, {title: 'Серия', val: 'Sensira'}, {title: 'Инверторные', val: 'Да'}, {title: 'Потребляемая мощность, охлаждение, кВт', val: '1,5~1,27~0,31'}, {title: 'Класс энергоэффективности, охлаждение', val: 'A'}, {title: 'Холодопроизводительность, кВт, макс.', val: '4,3'}, {title: 'Теплопроизводительность, кВт, макс.', val: '5'}, {title: 'Гарантия', val: '3 года'}]
             section.product 
                 .container.product__container
-                    .product__gallery.fotorama(data-nav="thumbs", data-arrows="false", data-thumbwidth="50px", data-thumbheight="50px", data-thumbmargin="13", data-thumbborderwidth="1.5", data-allowfullscreen="true")
-                        for productImg of productImgs 
-                                img.product__img(src=productImg.imgSrc, alt=productImg.imgTitle)
+                    .product__gallery
+                        .swiper.product-swiper
+                            .swiper-wrapper
+                                for productImg of productImgs 
+                                    .swiper-slide
+                                        img(src=productImg.imgSrc, alt=productImg.imgTitle)
+
+                        .swiper.thumbs-swiper
+                            .swiper-wrapper
+                                for productImg of productImgs 
+                                    .swiper-slide
+                                        img(src=productImg.imgSrc, alt=productImg.imgTitle)
+
+                    //- .product__gallery.fotorama(data-nav="thumbs", data-arrows="false", data-thumbwidth="50px", data-thumbheight="50px", data-thumbmargin="13", data-thumbborderwidth="1.5", data-allowfullscreen="true")
+                    //-     for productImg of productImgs 
+                    //-             img.product__img(src=productImg.imgSrc, alt=productImg.imgTitle)
                     .product__content
                         h3.product__title.h3-header Облачный кондиционер Daichi Alpha A20AVQR3_1Y/A20FVR3_1Y + 1&nbsp;год подписки
                         button.product__fav.btn-reset
@@ -88,8 +105,11 @@ html(lang="ru")
         //- footer.footer
 
         
-        script(src='https://code.jquery.com/ui/1.13.2/jquery-ui.js')  
+
+        
         script(src='https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js')  
-        script(src='js/inputmask.min.js')  
+        script(src='./js/inputmask.min.js')  
+        
         script(src='./js/app.js')   
+        
                                                     
