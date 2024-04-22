@@ -37,7 +37,7 @@ $(document).ready(function () {
     });
     var productSwiper = new Swiper(".product-swiper", {
         loop: true,
-        // spaceBetween: 10,
+        spaceBetween: 10,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
